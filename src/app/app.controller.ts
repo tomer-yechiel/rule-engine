@@ -1,14 +1,15 @@
 import { controller, IAppController } from '@foal/core';
-import { createConnection } from 'typeorm';
+const mssql = require('mssql')
 
-import { ApiController } from './controllers';
+import { FactsController, RulesController } from './controllers';
 
 export class AppController implements IAppController {
   subControllers = [
-    controller('/api', ApiController),
+    controller('/facts', FactsController),
+    controller('/rules', RulesController),
   ];
 
   async init() {
-    await createConnection();
+    await mssql.connect('REPLACE_ME_WITH_CONNECTION_STRING')
   }
 }

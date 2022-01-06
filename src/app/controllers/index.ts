@@ -1,1 +1,2 @@
-export { ApiController } from './api.controller';
+export { FactsController } from './facts.controller';
+export { RulesController } from './rules.controller';
