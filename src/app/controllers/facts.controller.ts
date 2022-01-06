@@ -10,7 +10,7 @@ export class FactsController {
   @ValidateQueryParam('table-name', { type: 'string' })
   async get(ctx: Context) {
     const tableName = ctx.request.query['table-name'];
-    const facts = await this.facts.execute({tableName});
+    const facts = await this.facts.execute(tableName);
     return new HttpResponseOK({'table-name': tableName, ...facts});
   }
 

@@ -15,7 +15,7 @@ export class RulesController {
   async get(ctx: Context) {
     const tableName = ctx.request.query['table-name'];
     //TODO move logic to service layer
-    const facts = await this.facts.execute({tableName});
+    const facts = await this.facts.execute(tableName);
     const res = await this.rule.evaluate(facts)
     return new HttpResponseOK(res);
   }
